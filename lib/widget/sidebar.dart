@@ -37,8 +37,8 @@ class Sidebar extends StatelessWidget {
             leading: Icon(Icons.people),
             title: Text("Pegawai"),
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => PegawaiPage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => PegawaiPage()));
             },
           ),
           ListTile(
