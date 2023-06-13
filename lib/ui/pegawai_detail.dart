@@ -64,10 +64,6 @@ class PegawaiDetailState extends State<PegawaiDetail> {
                 "Email: ${data.email}",
                 style: TextStyle(fontSize: 20),
               ),
-              Text(
-                "Password: ${data.password}",
-                style: TextStyle(fontSize: 20),
-              ),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -20,9 +20,9 @@ class Pegawai {
   factory Pegawai.fromJson(Map<String, dynamic> json) => Pegawai(
         id: json["id"],
         nip: json["nip"],
-        namaPegawai: json["nama_pegawai"],
-        tanggalLahir: DateTime.parse(json["tanggal_lahir"]),
-        nomorTelepon: json["nomor_telepon"],
+        namaPegawai: json["nama"],
+        tanggalLahir: DateTime.parse(json["tgl_lahir"]),
+        nomorTelepon: json["no_telp"],
         email: json["email"],
         password: json["password"],
       );
@@ -30,9 +30,9 @@ class Pegawai {
   Map<String, dynamic> toJson() => {
         "id": id,
         "nip": nip,
-        "nama_pegawai": namaPegawai,
-        "tanggal_lahir": tanggalLahir.toIso8601String(),
-        "nomor_telepon": nomorTelepon,
+        "nama": namaPegawai,
+        "tgl_lahir": tanggalLahir.toIso8601String(),
+        "no_telp": nomorTelepon,
         "email": email,
         "password": password,
       };
