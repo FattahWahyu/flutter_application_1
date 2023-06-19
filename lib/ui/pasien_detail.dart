@@ -4,6 +4,7 @@ import '../service/pasien_service.dart';
 import 'pasien_page.dart';
 import 'pasien_update_form.dart';
 import '../model/pasien.dart';
+import 'package:intl/intl.dart';
 
 class PasienDetail extends StatefulWidget {
   final Pasien pasien;
@@ -40,38 +41,60 @@ class PasienDetailState extends State<PasienDetail> {
             return Text('Data Tidak Ditemukan');
           }
           Pasien data = snapshot.data!;
-          return Column(
-            children: [
-              SizedBox(height: 20),
-              Text(
-                "Nama Pasien: ${data.namaPasien}",
-                style: TextStyle(fontSize: 20),
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Nomor RM: ${data.nomorRm}",
-                style: TextStyle(fontSize: 20),
-              ),
-              Text(
-                "Tanggal Lahir: ${data.tanggalLahir.toString()}",
-                style: TextStyle(fontSize: 20),
-              ),
-              Text(
-                "Nomor Telepon: ${data.nomorTelepon}",
-                style: TextStyle(fontSize: 20),
-              ),
-              Text(
-                "Alamat: ${data.alamat}",
-                style: TextStyle(fontSize: 20),
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [_tombolUbah(data), _tombolHapus(data)],
-              ),
-            ],
+          return Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                _buildDetailRow("Nama Pasien", data.namaPasien),
+                _buildDetailRow("Nomor RM", data.nomorRm),
+                _buildDetailRow("Tanggal Lahir", data.tanggalLahir.toString()),
+                _buildDetailRow("Nomor Telepon", data.nomorTelepon),
+                _buildDetailRow("Alamat", data.alamat),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [_tombolUbah(data), _tombolHapus(data)],
+                ),
+              ],
+            ),
           );
         },
+      ),
+    );
+  }
+
+  Widget _buildDetailRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Text(
+              label,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Text(
+              ":",
+              style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            flex: 4,
+            child: Text(
+              label == 'Tanggal Lahir'
+                  ? DateFormat('dd MMMM yyyy').format(DateTime.parse(value))
+                  : value,
+              style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.start,
+            ),
+          ),
+        ],
       ),
     );
   }
