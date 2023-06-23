@@ -39,9 +39,6 @@ class _PegawaiUpdateFormState extends State<PegawaiUpdateForm> {
       if (data.email != null) {
         _emailCtrl.text = data.email;
       }
-      if (data.password != null) {
-        _passwordCtrl.text = data.password;
-      }
     });
     return data;
   }
@@ -154,7 +151,6 @@ class _PegawaiUpdateFormState extends State<PegawaiUpdateForm> {
                 _tanggalLahirCtrl.text), // Mengubah String menjadi DateTime
             nomorTelepon: _nomorTeleponCtrl.text,
             email: _emailCtrl.text,
-            password: _passwordCtrl.text,
           );
           String id = widget.pegawai.id.toString();
           await PegawaiService().ubah(pegawai, id).then((value) {

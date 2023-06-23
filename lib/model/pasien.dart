@@ -17,19 +17,19 @@ class Pasien {
 
   factory Pasien.fromJson(Map<String, dynamic> json) => Pasien(
         id: json["id"],
-        nomorRm: json["no_rm"],
+        nomorRm: json["nomor_rm"],
         namaPasien: json["nama"],
-        tanggalLahir: DateTime.parse(json["tgl_lahir"]),
-        nomorTelepon: json["no_telp"],
+        tanggalLahir: DateTime.parse(json["tanggal_lahir"]),
+        nomorTelepon: json["nomor_telepon"],
         alamat: json["alamat"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "no_rm": nomorRm,
+        "nomor_rm": nomorRm,
         "nama": namaPasien,
-        "tgl_lahir": tanggalLahir.toIso8601String(),
-        "no_telp": nomorTelepon,
+        "tanggal_lahir": tanggalLahir.toIso8601String(),
+        "nomor_telepon": nomorTelepon,
         "alamat": alamat,
       };
 }

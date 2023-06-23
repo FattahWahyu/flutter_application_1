@@ -50,7 +50,6 @@ class PegawaiDetailState extends State<PegawaiDetail> {
                 _buildDetailRow("Tanggal Lahir", data.tanggalLahir.toString()),
                 _buildDetailRow("Nomor Telepon", data.nomorTelepon),
                 _buildDetailRow("Email", data.email),
-                _buildDetailRow("Password", data.password),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

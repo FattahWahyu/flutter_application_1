@@ -5,7 +5,6 @@ class Pegawai {
   DateTime tanggalLahir;
   String nomorTelepon;
   String email;
-  String password;
 
   Pegawai({
     this.id,
@@ -14,26 +13,23 @@ class Pegawai {
     required this.tanggalLahir,
     required this.nomorTelepon,
     required this.email,
-    required this.password,
   });
 
   factory Pegawai.fromJson(Map<String, dynamic> json) => Pegawai(
         id: json["id"],
         nip: json["nip"],
         namaPegawai: json["nama"],
-        tanggalLahir: DateTime.parse(json["tgl_lahir"]),
-        nomorTelepon: json["no_telp"],
+        tanggalLahir: DateTime.parse(json["tanggal_lahir"]),
+        nomorTelepon: json["nomor_telepon"],
         email: json["email"],
-        password: json["password"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "nip": nip,
         "nama": namaPegawai,
-        "tgl_lahir": tanggalLahir.toIso8601String(),
-        "no_telp": nomorTelepon,
+        "tanggal_lahir": tanggalLahir.toIso8601String(),
+        "nomor_telepon": nomorTelepon,
         "email": email,
-        "password": password,
       };
 }

@@ -113,8 +113,7 @@ class _PegawaiFormState extends State<PegawaiForm> {
             namaPegawai: _namaPegawaiCtrl.text,
             tanggalLahir: tanggalLahir,
             nomorTelepon: _nomorTeleponCtrl.text,
-            email: _emailCtrl.text,
-            password: _passwordCtrl.text);
+            email: _emailCtrl.text,);
         await PegawaiService().simpan(pegawai).then((value) {
           Navigator.pushReplacement(
             context,
